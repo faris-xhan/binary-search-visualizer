@@ -3,7 +3,7 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <Container fluid="md">
+    <Container fluid className="p-0">
       <Header />
     </Container>
   );
