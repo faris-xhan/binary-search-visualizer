@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { createArrayFromInput } from "./helper";
+import { createArrayFromInput } from "./utils/helper";
 
 function App() {
   const [input, setInput] = useState("");
@@ -35,15 +35,21 @@ function App() {
           <form onSubmit={handleSubmit} className="mb-3 p-1">
             <InputGroup className="mb-3">
               <FormControl
-                placeholder="1, 2, 3, 4, 5 ...."
+                placeholder="Enter list of numbers separated by comma, example 1, 2, 3, 4, 5 ...."
                 aria-label="Enter the comma separted list of numbers "
                 value={input}
                 pattern="^\d+(,\d+)*$"
                 required
                 onChange={handleInputChange}
               />
-              <Button variant="outline-secondary" type="submit">
-                Visualize
+              <FormControl
+                type="number"
+                className="bg-light border-primary"
+                placeholder="Search Item"
+                style={{ maxWidth: "25ch" }}
+              />
+              <Button variant="outline-primary" type="submit">
+                Find
               </Button>
             </InputGroup>
           </form>
