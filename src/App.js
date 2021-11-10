@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Col,
   Button,
@@ -5,11 +6,25 @@ import {
   FormControl,
   InputGroup,
   Row,
+  Table,
 } from "react-bootstrap";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { createArrayFromInput } from "./helper";
 
 function App() {
+  const [input, setInput] = useState("");
+  const [data, setData] = useState([]);
+  const handleInputChange = (event) => {
+    setInput(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const numbersList = createArrayFromInput(input);
+    setData(numbersList);
+  };
+
   return (
     <Container fluid>
       <Row xs={1} className="d-flex flex-column min-vh-100">
@@ -17,17 +32,38 @@ function App() {
           <Header />
         </Col>
         <Col>
-          <form className="mb-3 p-1">
+          <form onSubmit={handleSubmit} className="mb-3 p-1">
             <InputGroup className="mb-3">
               <FormControl
                 placeholder="1, 2, 3, 4, 5 ...."
                 aria-label="Enter the comma separted list of numbers "
+                value={input}
+                pattern="^\d+(,\d+)*$"
+                required
+                onChange={handleInputChange}
               />
               <Button variant="outline-secondary" type="submit">
                 Visualize
               </Button>
             </InputGroup>
           </form>
+          <div className="container p-1">
+            <Table variant="secondary" bordered className="border-primary">
+              <tbody>
+                <tr>
+                  {data.map((d, index) => (
+                    <td
+                      key={index}
+                      data-index={index}
+                      className="text-center fw-bold array-item"
+                    >
+                      {d}
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </Table>
+          </div>
         </Col>
         <Col className="p-0 mt-auto">
           <Footer />
