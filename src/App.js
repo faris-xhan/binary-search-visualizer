@@ -1,4 +1,11 @@
-import { Col, Container, Row } from "react-bootstrap";
+import {
+  Col,
+  Button,
+  Container,
+  FormControl,
+  InputGroup,
+  Row,
+} from "react-bootstrap";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
@@ -9,7 +16,19 @@ function App() {
         <Col className="p-0">
           <Header />
         </Col>
-        <Col>main</Col>
+        <Col>
+          <form className="mb-3 p-1">
+            <InputGroup className="mb-3">
+              <FormControl
+                placeholder="1, 2, 3, 4, 5 ...."
+                aria-label="Enter the comma separted list of numbers "
+              />
+              <Button variant="outline-secondary" type="submit">
+                Visualize
+              </Button>
+            </InputGroup>
+          </form>
+        </Col>
         <Col className="p-0 mt-auto">
           <Footer />
         </Col>
