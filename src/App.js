@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import {
-  Col,
-  Button,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Table,
-} from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import FormControl from "react-bootstrap/FormControl";
+import InputGroup from "react-bootstrap/InputGroup";
+import Row from "react-bootstrap/Row";
+import Table from "react-bootstrap/Table";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { binarySearch } from "./utils/binarySearch";
