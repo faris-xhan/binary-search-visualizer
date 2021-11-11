@@ -10,12 +10,13 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { binarySearch } from "./utils/binarySearch";
 import { createArrayFromInput, getCellItemClass } from "./utils/helper";
+import Alert from "react-bootstrap/Alert";
 
 function App() {
   const [input, setInput] = useState("");
   const [searchItem, setSearchItem] = useState(7);
   const [inputData, setInputData] = useState([]);
-
+  const [alertMessage, setAlertMessage] = useState("");
   const [result, setResult] = useState([]);
   const handleInputChange = (event) => {
     setInput(event.target.value);
@@ -32,7 +33,13 @@ function App() {
   };
 
   useEffect(() => {
-    setResult(binarySearch(inputData, parseInt(searchItem)));
+    const r = binarySearch(inputData, parseInt(searchItem));
+    if (r[1].length) {
+      r[0] > -1
+        ? setAlertMessage("Element found on index " + r[0])
+        : setAlertMessage("Element cannot be found in the list");
+    }
+    setResult(r);
   }, [inputData, searchItem]);
   return (
     <Container fluid>
@@ -64,7 +71,13 @@ function App() {
               </Button>
             </InputGroup>
           </form>
-          <div className="container p-1 mb-3">
+          {alertMessage && (
+            <Alert variant="primary" className="mb-5">
+              {" "}
+              {alertMessage}{" "}
+            </Alert>
+          )}
+          <div className="p-1 mb-3">
             <Table variant="secondary" bordered className="border-primary">
               <tbody>
                 <tr>
@@ -81,18 +94,25 @@ function App() {
               </tbody>
             </Table>
           </div>
-          <div className="container p-1">
+          <div className="p-1">
             {result.length &&
               result[1]?.map((r) => {
                 return (
-                  <div className="border rounded mb-3 p-2">
+                  <div
+                    key={r.iteration}
+                    className="border border-primary rounded mb-3 p-2"
+                  >
                     <div className="mb-4 d-flex justify-content-between">
                       <h5>Iteration: {r.iteration}</h5>
                       <h5 className="text-danger">
-                        Lower Bound: {r.lowerBound}
+                        <abbr title="Lower Bound">L.B</abbr> {r.lowerBound}
                       </h5>
-                      <h5 className="text-success">Midpoint: {r.mid} </h5>
-                      <h5 className="text-info">Upper Bound: {r.upperBound}</h5>
+                      <h5 className="text-success">
+                        <abbr title="Midpoint">Mid:</abbr> {r.mid}{" "}
+                      </h5>
+                      <h5 className="text-info">
+                        <abbr title="UpperBound">U.B:</abbr> {r.upperBound}
+                      </h5>
                     </div>
                     <Table bordered>
                       <tbody>
