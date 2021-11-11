@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Col,
   Button,
@@ -10,11 +10,15 @@ import {
 } from "react-bootstrap";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { createArrayFromInput } from "./utils/helper";
+import { binarySearch } from "./utils/binarySearch";
+import { createArrayFromInput, getCellItemClass } from "./utils/helper";
 
 function App() {
   const [input, setInput] = useState("");
-  const [data, setData] = useState([]);
+  const [searchItem, setSearchItem] = useState(7);
+  const [inputData, setInputData] = useState([]);
+
+  const [result, setResult] = useState([]);
   const handleInputChange = (event) => {
     setInput(event.target.value);
   };
@@ -22,9 +26,16 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const numbersList = createArrayFromInput(input);
-    setData(numbersList);
+    setInputData(numbersList);
   };
 
+  const handleSearchItemChange = (event) => {
+    setSearchItem(event.target.value);
+  };
+
+  useEffect(() => {
+    setResult(binarySearch(inputData, searchItem));
+  }, [inputData, searchItem]);
   return (
     <Container fluid>
       <Row xs={1} className="d-flex flex-column min-vh-100">
@@ -45,7 +56,9 @@ function App() {
               <FormControl
                 type="number"
                 className="bg-light border-primary"
-                placeholder="Search Item"
+                placeholder="Search Number"
+                value={searchItem}
+                onChange={handleSearchItemChange}
                 style={{ maxWidth: "25ch" }}
               />
               <Button variant="outline-primary" type="submit">
@@ -53,11 +66,11 @@ function App() {
               </Button>
             </InputGroup>
           </form>
-          <div className="container p-1">
+          <div className="container p-1 mb-3">
             <Table variant="secondary" bordered className="border-primary">
               <tbody>
                 <tr>
-                  {data.map((d, index) => (
+                  {inputData.map((d, index) => (
                     <td
                       key={index}
                       data-index={index}
@@ -69,6 +82,34 @@ function App() {
                 </tr>
               </tbody>
             </Table>
+          </div>
+          <div className="container p-1">
+            {result.length &&
+              result[1]?.map((r) => {
+                return (
+                  <>
+                    <h3 className="mb-4"> Iteration: {r.iteration} </h3>
+                    <Table bordered className="mb-5">
+                      <tbody>
+                        <tr>
+                          {inputData.map((d, index) => (
+                            <td
+                              key={index}
+                              data-index={index}
+                              className={`text-center fw-bold array-item ${getCellItemClass(
+                                r,
+                                index
+                              )}`}
+                            >
+                              {d}
+                            </td>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </Table>
+                  </>
+                );
+              })}
           </div>
         </Col>
         <Col className="p-0 mt-auto">
