@@ -32,7 +32,7 @@ function App() {
   };
 
   useEffect(() => {
-    setResult(binarySearch(inputData, searchItem));
+    setResult(binarySearch(inputData, parseInt(searchItem)));
   }, [inputData, searchItem]);
   return (
     <Container fluid>

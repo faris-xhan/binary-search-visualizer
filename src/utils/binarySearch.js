@@ -13,7 +13,7 @@ export const binarySearch = (arr, sn, isSorted) => {
     let mid = Math.floor((lowerBound + upperBound) / 2);
     meta.push({ lowerBound, upperBound, mid, iteration: it++ });
     if (arr[mid] === sn) return [mid, meta];
-    else if (arr[mid] < sn) lowerBound = mid + 1;
+    if (sn > arr[mid]) lowerBound = mid + 1;
     else upperBound = mid - 1;
   }
 
