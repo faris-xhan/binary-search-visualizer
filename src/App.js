@@ -87,9 +87,16 @@ function App() {
             {result.length &&
               result[1]?.map((r) => {
                 return (
-                  <>
-                    <h3 className="mb-4"> Iteration: {r.iteration} </h3>
-                    <Table bordered className="mb-5">
+                  <div className="border rounded mb-3 p-2">
+                    <div className="mb-4 d-flex justify-content-between">
+                      <h5>Iteration: {r.iteration}</h5>
+                      <h5 className="text-danger">
+                        Lower Bound: {r.lowerBound}
+                      </h5>
+                      <h5 className="text-success">Midpoint: {r.mid} </h5>
+                      <h5 className="text-info">Upper Bound: {r.upperBound}</h5>
+                    </div>
+                    <Table bordered>
                       <tbody>
                         <tr>
                           {inputData.map((d, index) => (
@@ -107,7 +114,7 @@ function App() {
                         </tr>
                       </tbody>
                     </Table>
-                  </>
+                  </div>
                 );
               })}
           </div>
