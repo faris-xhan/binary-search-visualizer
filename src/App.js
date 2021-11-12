@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ProgressBar from "react-bootstrap/ProgressBar";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -18,6 +19,7 @@ function App() {
   const [inputData, setInputData] = useState([]);
   const [alertMessage, setAlertMessage] = useState("");
   const [result, setResult] = useState([]);
+  const [loading, setLoading] = useState(false);
   const handleInputChange = (event) => {
     setInput(event.target.value);
   };
@@ -33,12 +35,14 @@ function App() {
   };
 
   useEffect(() => {
+    setLoading(true);
     const r = binarySearch(inputData, parseInt(searchItem));
     if (r[1].length) {
       r[0] > -1
         ? setAlertMessage("Element found on index " + r[0])
         : setAlertMessage("Element cannot be found in the list");
     }
+    setLoading(false);
     setResult(r);
   }, [inputData, searchItem]);
   return (
@@ -66,10 +70,15 @@ function App() {
                 onChange={handleSearchItemChange}
                 style={{ maxWidth: "25ch" }}
               />
-              <Button variant="outline-primary" type="submit">
+              <Button
+                disabled={loading}
+                variant="outline-primary"
+                type="submit"
+              >
                 Find
               </Button>
             </InputGroup>
+            {loading && <ProgressBar animated now={100} />}
           </form>
           {alertMessage && (
             <Alert variant="primary" className="mb-5">
