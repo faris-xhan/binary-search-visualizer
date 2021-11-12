@@ -1,9 +1,13 @@
 .array-item::before {
-  content: attr(data-index); /* Returns '✅' */
-  margin-right: 5px;
-  display: inline-block;
+  content: attr(data-index); /* Returns 'index number' */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  color: grey;
-  left: 15px;
-  bottom: 32px;
+  color: black;
+  font-size: 10px;
+}
+
+.table-responsive {
+  padding-bottom: 20px !important;
 }

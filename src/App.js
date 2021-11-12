@@ -77,8 +77,13 @@ function App() {
               {alertMessage}{" "}
             </Alert>
           )}
-          <div className="p-1 mb-3">
-            <Table variant="secondary" bordered className="border-primary">
+          <div className="p-1 mb-3  table-responsive">
+            <Table
+              variant="secondary"
+              bordered
+              size="sm"
+              className="border-primary"
+            >
               <tbody>
                 <tr>
                   {inputData.map((d, index) => (
@@ -102,36 +107,43 @@ function App() {
                     key={r.iteration}
                     className="border border-primary rounded mb-3 p-2"
                   >
-                    <div className="mb-4 d-flex justify-content-between">
-                      <h5>Iteration: {r.iteration}</h5>
-                      <h5 className="text-danger">
-                        <abbr title="Lower Bound">L.B</abbr> {r.lowerBound}
+                    <div className="mb-2">
+                      <h5
+                        className="text-uppercase "
+                        style={{ letterSpacing: 1.02 }}
+                      >
+                        Iteration: {r.iteration}
                       </h5>
-                      <h5 className="text-success">
-                        <abbr title="Midpoint">Mid:</abbr> {r.mid}{" "}
-                      </h5>
-                      <h5 className="text-info">
-                        <abbr title="UpperBound">U.B:</abbr> {r.upperBound}
-                      </h5>
+                      <h6 className="d-inline-block text-none px-1 py-0 m-0 text-danger">
+                        Lower Bound: {r.lowerBound}
+                      </h6>
+                      <h6 className="d-inline-block text-none px-1 py-0 m-0 text-success">
+                        Midpoint: {r.mid}{" "}
+                      </h6>
+                      <h6 className="d-inline-block text-none px-1 py-0 m-0 text-info">
+                        Upper Bound: {r.upperBound}
+                      </h6>
                     </div>
-                    <Table bordered>
-                      <tbody>
-                        <tr>
-                          {inputData.map((d, index) => (
-                            <td
-                              key={index}
-                              data-index={index}
-                              className={`text-center fw-bold array-item ${getCellItemClass(
-                                r,
-                                index
-                              )}`}
-                            >
-                              {d}
-                            </td>
-                          ))}
-                        </tr>
-                      </tbody>
-                    </Table>
+                    <div className="table-responsive">
+                      <Table bordered size="sm">
+                        <tbody>
+                          <tr>
+                            {inputData.map((d, index) => (
+                              <td
+                                key={index}
+                                data-index={index}
+                                className={`text-center fw-bold array-item ${getCellItemClass(
+                                  r,
+                                  index
+                                )}`}
+                              >
+                                {d}
+                              </td>
+                            ))}
+                          </tr>
+                        </tbody>
+                      </Table>
+                    </div>
                   </div>
                 );
               })}
