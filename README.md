@@ -65,8 +65,8 @@ To run this project you would require Node v14 or above and npm installed on you
 
 ## Roadmap
 
-- :heavy_check_mark: Add a progress bar during searching.
-- :heavy_check_mark: Add a README
+- [:heavy_check_mark:] Add a progress bar during searching.
+- [:heavy_check_mark:] Add a README
 - [ ] Change alert varaint based on item found or not.
 - [ ] Add a switch for <em> sorted </em> & <em> unsorted </em> input.
 - [ ] Limit the user input to only 100 values in production.
