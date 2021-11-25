@@ -51,11 +51,11 @@ To run this project you would require Node v14 or above and npm installed on you
    npm install
    ```
 
-3. Start the development server.
+3. Start the development server. :hammer:
    ```sh
    npm start
    ```
-4. Start the build.
+4. Start the build. :sparkles:
 
 ```sh
    npm run build
@@ -65,8 +65,8 @@ To run this project you would require Node v14 or above and npm installed on you
 
 ## Roadmap
 
-- [x] Add a progress bar during searching.
-- [x] Add a README
+- :heavy_check_mark: Add a progress bar during searching.
+- :heavy_check_mark: Add a README
 - [ ] Change alert varaint based on item found or not.
 - [ ] Add a switch for <em> sorted </em> & <em> unsorted </em> input.
 - [ ] Limit the user input to only 100 values in production.
