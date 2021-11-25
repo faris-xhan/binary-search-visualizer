@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/faris-xhan/binary-search-visualizer">
-    <img src="images/logo.svg" alt="Logo" width="80" height="80">
+    <img src="./images/logo.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Binary Search <em>Visualizer</em></h3>
@@ -24,7 +24,7 @@
 
 ## About The Project
 
-[![Binary Binary Search][product-gif]](https://github.com/faris-xhan/binary-search-visualizer)
+[![Binary Binary Search][./images/sample.gif]](https://github.com/faris-xhan/binary-search-visualizer)
 
 A very simple binary search visualizer that takes numbers separted by comma as input and another number to search in the input. It then searchs item inside those values using <em> binary search </em> and output each iteration along with its <em> Upper Bound </em>, <em> Lower Bound </em> and its <em> Midpoint </em>.
 
@@ -94,5 +94,3 @@ Distributed under the MIT License.
 Mohammad Naeem - [@nemoxhan](https://twitter.com/nemoxhan) - nemoxhan@gmail.com
 
 Project Link: [https://github.com/faris-xhan/binary-search-visualizer](https://github.com/faris-xhan/binary-search-visualizer)
-
-[product-gif]: images/sample.gif
