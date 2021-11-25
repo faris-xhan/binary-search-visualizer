@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Binary Search <em>Visualizer</em></h3>
 
-## Available Scripts
+  <p align="center">
+    A Binary Search <em> Visualizer </em> let you visualize how binary search works by giving you the output of each iteartion.
+    <br />
+    <br />
+    <br />
+    <a href="https://binary-search-visualization.netlify.app/">View Demo</a>
+    ·
+    <a href="https://github.com/faris-xhan/binary-search-visualizer/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/faris-xhan/binary-search-visualizer/issues">Request Feature</a>
+  </p>
+</div>
 
-In the project directory, you can run:
+<!-- ABOUT THE PROJECT -->
 
-### `npm start`
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[![Binary Binary Search][product-gif]](https://github.com/faris-xhan/binary-search-visualizer)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A very simple binary search visualizer that takes numbers separted by comma as input and another number to search in the input. It then searchs item inside those values using <em> binary search </em> and output each iteration along with its <em> Upper Bound </em>, <em> Lower Bound </em> and its <em> Midpoint </em>.
 
-### `npm test`
+### Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React.js](https://reactjs.org/)
+- [React-Bootstrap](https://react-bootstrap.github.io/)
 
-### `npm run build`
+<!-- GETTING STARTED -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run this project you would require Node v14 or above and npm installed on your computer.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repo
+   ```sh
+   git clone https://github.com/faris-xhan/binary-search-visualizer.git
+   ```
+2. Install NPM packages
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```sh
+   npm install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Install NPM packages
+   ```sh
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<!-- ROADMAP -->
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Roadmap
 
-## Learn More
+- [x] Add a progress bar during searching.
+- [x] Add a README
+- [ ] Add a switch for <em> sorted </em> & <em> unsorted </em> input.
+- [ ] Limit the user input to only 100 values in production.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- CONTRIBUTING -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
 
-### Code Splitting
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
-### Analyzing the Bundle Size
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- LICENSE -->
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Distributed under the MIT License.
 
-### Advanced Configuration
+<!-- CONTACT -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contact
 
-### Deployment
+Mohammad Naeem - [@nemoxhan](https://twitter.com/nemoxhan) - nemoxhan@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Project Link: [https://github.com/faris-xhan/binary-search-visualizer](https://github.com/faris-xhan/binary-search-visualizer)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[product-gif]: images/sample.gif
