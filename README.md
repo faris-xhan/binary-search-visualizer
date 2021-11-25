@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/faris-xhan/binary-search-visualizer">
+    <img src="images/logo.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Binary Search <em>Visualizer</em></h3>
@@ -62,6 +62,7 @@ To run this project you would require Node v14 or above and npm installed on you
 
 - [x] Add a progress bar during searching.
 - [x] Add a README
+- [ ] Change alert varaint based on item found or not.
 - [ ] Add a switch for <em> sorted </em> & <em> unsorted </em> input.
 - [ ] Limit the user input to only 100 values in production.
 
