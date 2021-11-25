@@ -51,10 +51,15 @@ To run this project you would require Node v14 or above and npm installed on you
    npm install
    ```
 
-3. Install NPM packages
+3. Start the development server.
    ```sh
    npm start
    ```
+4. Start the build.
+
+```sh
+   npm run build
+```
 
 <!-- ROADMAP -->
 
