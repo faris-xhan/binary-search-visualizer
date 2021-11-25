@@ -24,7 +24,7 @@
 
 ## About The Project
 
-[![Binary Binary Search][https://raw.githubusercontent.com/faris-xhan/binary-search-visualizer/main/src/images/logo.svg]](https://github.com/faris-xhan/binary-search-visualizer)
+![Binary Search Logo](https://raw.githubusercontent.com/faris-xhan/binary-search-visualizer/main/src/images/logo.svg)
 
 A very simple binary search visualizer that takes numbers separted by comma as input and another number to search in the input. It then searchs item inside those values using <em> binary search </em> and output each iteration along with its <em> Upper Bound </em>, <em> Lower Bound </em> and its <em> Midpoint </em>.
 
