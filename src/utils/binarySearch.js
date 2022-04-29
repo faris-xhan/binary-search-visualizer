@@ -1,5 +1,5 @@
 /**
- * Search in array using Binary Search Algoritm
+ * Search in array using Binary Search Algorithm
  * @param {Array} arr => Array to search in.
  * @param {Number} sn => Number to be search.
  * @param {Boolean} isSorted => Flag to check if array is sorted or not.
