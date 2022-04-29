@@ -1,25 +1,28 @@
-import { useState, useEffect } from "react";
-import ProgressBar from "react-bootstrap/ProgressBar";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import FormControl from "react-bootstrap/FormControl";
-import InputGroup from "react-bootstrap/InputGroup";
-import Row from "react-bootstrap/Row";
-import Table from "react-bootstrap/Table";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import { binarySearch } from "./utils/binarySearch";
-import { createArrayFromInput, getCellItemClass } from "./utils/helper";
-import Alert from "react-bootstrap/Alert";
+import { createArrayFromInput, getCellItemClass } from './utils/helper';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { binarySearch } from './utils/binarySearch';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import { useState, useEffect } from 'react';
+import Table from 'react-bootstrap/Table';
+import Alert from 'react-bootstrap/Alert';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 function App() {
-  const [input, setInput] = useState("");
+  const [alertMessage, setAlertMessage] = useState('');
   const [searchItem, setSearchItem] = useState(7);
   const [inputData, setInputData] = useState([]);
-  const [alertMessage, setAlertMessage] = useState("");
-  const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState([]);
+  const [input, setInput] = useState('');
+
+  let alertVariant = 'primary';
+
   const handleInputChange = (event) => {
     setInput(event.target.value);
   };
@@ -38,9 +41,12 @@ function App() {
     setLoading(true);
     const r = binarySearch(inputData, parseInt(searchItem));
     if (r[1].length) {
-      r[0] > -1
-        ? setAlertMessage("Element found on index " + r[0])
-        : setAlertMessage("Element cannot be found in the list");
+      if (r[0] > -1) {
+        setAlertMessage('Element found on index ' + r[0]);
+      } else {
+        setAlertMessage('Element cannot be found in the list');
+        alertVariant = 'danger';
+      }
     }
     setLoading(false);
     setResult(r);
@@ -56,19 +62,19 @@ function App() {
             <InputGroup className="mb-3">
               <FormControl
                 placeholder="Enter list of numbers separated by comma, example 1, 2, 3, 4, 5 ...."
-                aria-label="Enter the comma separted list of numbers "
-                value={input}
-                pattern="^\d+(,\d+)*$"
-                required
+                aria-label="Enter the comma separated list of numbers "
                 onChange={handleInputChange}
+                pattern="^\d+(,\d+)*$"
+                value={input}
+                required
               />
               <FormControl
-                type="number"
                 className="bg-light border-primary"
+                onChange={handleSearchItemChange}
+                style={{ maxWidth: '25ch' }}
                 placeholder="Search Number"
                 value={searchItem}
-                onChange={handleSearchItemChange}
-                style={{ maxWidth: "25ch" }}
+                type="number"
               />
               <Button
                 disabled={loading}
@@ -81,17 +87,17 @@ function App() {
             {loading && <ProgressBar animated now={100} />}
           </form>
           {alertMessage && (
-            <Alert variant="primary" className="mb-5">
-              {" "}
-              {alertMessage}{" "}
+            <Alert variant={alertVariant} className="mb-5">
+              {' '}
+              {alertMessage}{' '}
             </Alert>
           )}
           <div className="p-1 mb-3  table-responsive">
             <Table
-              variant="secondary"
-              bordered
-              size="sm"
               className="border-primary"
+              variant="secondary"
+              size="sm"
+              bordered
             >
               <tbody>
                 <tr>
@@ -118,8 +124,8 @@ function App() {
                   >
                     <div className="mb-2">
                       <h5
-                        className="text-uppercase "
                         style={{ letterSpacing: 1.02 }}
+                        className="text-uppercase "
                       >
                         Iteration: {r.iteration}
                       </h5>
@@ -127,7 +133,7 @@ function App() {
                         Lower Bound: {r.lowerBound}
                       </h6>
                       <h6 className="d-inline-block text-none px-1 py-0 m-0 text-success">
-                        Midpoint: {r.mid}{" "}
+                        Midpoint: {r.mid}{' '}
                       </h6>
                       <h6 className="d-inline-block text-none px-1 py-0 m-0 text-info">
                         Upper Bound: {r.upperBound}
