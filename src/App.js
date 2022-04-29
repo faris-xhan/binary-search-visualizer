@@ -2,10 +2,10 @@ import { createArrayFromInput, getCellItemClass } from './utils/helper';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useState, useEffect, useRef } from 'react';
 import { binarySearch } from './utils/binarySearch';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
-import { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Alert from 'react-bootstrap/Alert';
 import Footer from './components/Footer';
@@ -21,7 +21,7 @@ function App() {
   const [result, setResult] = useState([]);
   const [input, setInput] = useState('');
 
-  let alertVariant = 'primary';
+  const alertVariant = useRef('primary');
 
   const handleInputChange = (event) => {
     setInput(event.target.value);
@@ -43,10 +43,10 @@ function App() {
     if (r[1].length) {
       if (r[0] > -1) {
         setAlertMessage('Element found on index ' + r[0]);
+        alertVariant.current = 'primary';
       } else {
         setAlertMessage('Element cannot be found in the list');
-        alertVariant = 'danger';
-        console.log(alertVariant);
+        alertVariant.current = 'danger';
       }
     }
     setLoading(false);
@@ -88,7 +88,7 @@ function App() {
             {loading && <ProgressBar animated now={100} />}
           </form>
           {alertMessage && (
-            <Alert variant={alertVariant} className="mb-5">
+            <Alert variant={alertVariant.current} className="mb-5">
               {' '}
               {alertMessage}{' '}
             </Alert>
