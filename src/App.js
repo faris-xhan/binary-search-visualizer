@@ -21,6 +21,8 @@ function App() {
   const [result, setResult] = useState([]);
   const [input, setInput] = useState('');
 
+  let alertVariant = 'primary';
+
   const handleInputChange = (event) => {
     setInput(event.target.value);
   };
@@ -39,9 +41,12 @@ function App() {
     setLoading(true);
     const r = binarySearch(inputData, parseInt(searchItem));
     if (r[1].length) {
-      r[0] > -1
-        ? setAlertMessage('Element found on index ' + r[0])
-        : setAlertMessage('Element cannot be found in the list');
+      if (r[0] > -1) {
+        setAlertMessage('Element found on index ' + r[0]);
+      } else {
+        setAlertMessage('Element cannot be found in the list');
+        alertVariant = 'danger';
+      }
     }
     setLoading(false);
     setResult(r);
@@ -82,7 +87,7 @@ function App() {
             {loading && <ProgressBar animated now={100} />}
           </form>
           {alertMessage && (
-            <Alert variant="primary" className="mb-5">
+            <Alert variant={alertVariant} className="mb-5">
               {' '}
               {alertMessage}{' '}
             </Alert>
