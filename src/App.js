@@ -14,12 +14,13 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 function App() {
-  const [input, setInput] = useState('');
+  const [alertMessage, setAlertMessage] = useState('');
   const [searchItem, setSearchItem] = useState(7);
   const [inputData, setInputData] = useState([]);
-  const [alertMessage, setAlertMessage] = useState('');
-  const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState([]);
+  const [input, setInput] = useState('');
+
   const handleInputChange = (event) => {
     setInput(event.target.value);
   };
