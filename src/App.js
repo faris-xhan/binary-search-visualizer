@@ -57,18 +57,18 @@ function App() {
               <FormControl
                 placeholder="Enter list of numbers separated by comma, example 1, 2, 3, 4, 5 ...."
                 aria-label="Enter the comma separated list of numbers "
-                value={input}
-                pattern="^\d+(,\d+)*$"
-                required
                 onChange={handleInputChange}
+                pattern="^\d+(,\d+)*$"
+                value={input}
+                required
               />
               <FormControl
-                type="number"
                 className="bg-light border-primary"
-                placeholder="Search Number"
-                value={searchItem}
                 onChange={handleSearchItemChange}
                 style={{ maxWidth: '25ch' }}
+                placeholder="Search Number"
+                value={searchItem}
+                type="number"
               />
               <Button
                 disabled={loading}
@@ -88,10 +88,10 @@ function App() {
           )}
           <div className="p-1 mb-3  table-responsive">
             <Table
-              variant="secondary"
-              bordered
-              size="sm"
               className="border-primary"
+              variant="secondary"
+              size="sm"
+              bordered
             >
               <tbody>
                 <tr>
@@ -118,8 +118,8 @@ function App() {
                   >
                     <div className="mb-2">
                       <h5
-                        className="text-uppercase "
                         style={{ letterSpacing: 1.02 }}
+                        className="text-uppercase "
                       >
                         Iteration: {r.iteration}
                       </h5>
