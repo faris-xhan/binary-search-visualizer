@@ -42,9 +42,11 @@ To run this project you would require Node v14 or above and npm installed on you
 ### Installation
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/faris-xhan/binary-search-visualizer.git
    ```
+
 2. Install NPM packages
 
    ```sh
@@ -52,9 +54,11 @@ To run this project you would require Node v14 or above and npm installed on you
    ```
 
 3. Start the development server. :hammer:
+
    ```sh
    npm start
    ```
+
 4. Start the build. :sparkles:
 
 ```sh
@@ -67,7 +71,7 @@ To run this project you would require Node v14 or above and npm installed on you
 
 - :heavy_check_mark: Add a progress bar during searching.
 - :heavy_check_mark: Add a README
-- :black_large_square: Change alert varaint based on item found or not.
+- :heavy_check_mark: Change alert varaint based on item found or not.
 - :black_large_square: Add a switch for <em> sorted </em> & <em> unsorted </em> input.
 - :black_large_square: Limit the user input to only 100 values in production.
 
