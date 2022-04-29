@@ -46,6 +46,7 @@ function App() {
       } else {
         setAlertMessage('Element cannot be found in the list');
         alertVariant = 'danger';
+        console.log(alertVariant);
       }
     }
     setLoading(false);
