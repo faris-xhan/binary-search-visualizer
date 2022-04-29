@@ -56,7 +56,7 @@ function App() {
             <InputGroup className="mb-3">
               <FormControl
                 placeholder="Enter list of numbers separated by comma, example 1, 2, 3, 4, 5 ...."
-                aria-label="Enter the comma separted list of numbers "
+                aria-label="Enter the comma separated list of numbers "
                 value={input}
                 pattern="^\d+(,\d+)*$"
                 required
